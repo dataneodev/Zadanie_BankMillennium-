@@ -20,4 +20,6 @@ while (true)
 
     Console.WriteLine("Data from service: ");
     Console.WriteLine(data);
+
+    await Task.Delay(5000);
 }
