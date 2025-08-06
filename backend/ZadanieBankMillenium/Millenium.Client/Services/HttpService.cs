@@ -4,6 +4,7 @@ namespace Millenium.Client.Services;
 
 internal sealed class HttpService : IHttpService
 {
+    private const string RestUrl = "https://localhost:7161/fake";
     private const string RestKey = "RestKey";
     private readonly IDistributedCache _cache;
 
@@ -22,7 +23,7 @@ internal sealed class HttpService : IHttpService
         if (cached != null) return cached;
 
         var client = _httpClientFactory.CreateClient();
-        var response = await client.GetAsync("https://localhost:7161/fake");
+        var response = await client.GetAsync(RestUrl);
         response.EnsureSuccessStatusCode();
 
         var result = await response.Content.ReadAsStringAsync();
