@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Caching.Distributed;
 
-namespace Millenium.Client;
+namespace Millenium.Client.Services;
 
 internal sealed class HttpService : IHttpService
 {
@@ -16,7 +16,7 @@ internal sealed class HttpService : IHttpService
         _cache = cache;
     }
 
-    public async Task<string?> GetRestData()
+    public async Task<string?> GetRestDataAsync()
     {
         var cached = await _cache.GetStringAsync(RestKey);
         if (cached != null) return cached;

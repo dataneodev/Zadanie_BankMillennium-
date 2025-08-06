@@ -2,5 +2,5 @@
 
 public interface IHttpService
 {
-    Task<string?> GetRestData();
+    Task<string?> GetRestDataAsync();
 }
